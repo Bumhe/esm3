@@ -1,0 +1,26 @@
+
+
+<section *ngIf="memberExists"  fxLayout="row wrap" fxLayoutAlign="center center">
+    <mat-card fxFlex="40%" fxFlex.xs="100%">
+        <mat-card-title>Payment!</mat-card-title>
+       
+     
+        <mat-card-content >
+                  
+            <p>Hello {{member.firstName}}</p>
+            <p>Your Registration details are as follows:</p>
+            <p><span>Category  </span>{{member.category}}</p>
+            <p><span>Zone  </span>{{member.zone}}</p>
+            <p><span>Chapter  </span>{{member.chapter}}</p>
+            <p><span>Registration Id  </span>{{member.regId}}</p>
+            <p><span>Fee</span>  N{{member.amount}}</p>
+            <p *ngIf='member.paid'>Your payment was received</p>
+        </mat-card-content>
+	
+        <mat-card-actions *ngIf='!member.paid' align="center">
+                
+                <button mat-raised-button color="primary" (click)="onPay()" >Make Payment</button>
+        </mat-card-actions>
+  
+      </mat-card>
+  </section>

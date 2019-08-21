@@ -1,0 +1,16 @@
+
+
+mat-form-field{
+    width: 250px;
+}
+mat-card-title{
+    text-align: center;
+}
+section{
+    margin-top: 20px;
+}
+
+mat-hint a{
+    color:red;
+}
+

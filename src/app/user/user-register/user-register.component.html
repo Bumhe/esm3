@@ -1,0 +1,111 @@
+<section *ngIf='showRegForm' fxLayout="row wrap" fxLayoutAlign="center center">
+    <mat-card fxFlex="70%" fxFlex.xs="100%">
+        <mat-card-title>Member Registration!</mat-card-title>
+        <form [formGroup]="memberForm" autocomplete="off" novalidate (ngSubmit)="registerMember(memberForm.value)" fxLayout="column wrap"
+      fxLayoutAlign="center center" fxLayoutGap="30px">
+        <mat-card-content >
+            <div  fxLayout="row wrap">
+                    
+                            <mat-form-field  style="margin-right:3%"  fxFlex="48%" fxFlex.lt-sm="100%">
+                                <input matInput type="text" placeholder="First name" formControlName="firstName" id="firstName">
+                                <mat-hint align="end">Not more then 20 characters long.</mat-hint>
+                                <mat-error *ngIf="hasError('firstName', 'required')">First Name is required</mat-error>
+                                <mat-error *ngIf="hasError('firstName', 'maxlength')">You have more than 20 characters</mat-error>
+                              </mat-form-field>
+              
+                              <mat-form-field   fxFlex="48%" fxFlex.lt-sm="100%">
+                                  <input matInput type="text" placeholder="Last name" formControlName="lastName" id="lastName">
+                                  <mat-hint align="end">Not more then 20 characters long.</mat-hint>
+                                  <mat-error *ngIf="hasError('lastName', 'required')">Last Name is required</mat-error>
+                                  <mat-error *ngIf="hasError('lastName', 'maxlength')">You have more than 20 characters</mat-error>
+                                </mat-form-field>
+                        
+            </div>
+                   
+                
+         <div class="input-row" fxLayout="row wrap">
+                 <mat-form-field style="margin-right:3%"  fxFlex="48%" fxFlex.lt-sm="100%">
+                    <input matInput type="text" placeholder="Phone" formControlName="phone" id="phone">
+                    <mat-hint align="end">Not more then 15 characters long.</mat-hint>
+                    <mat-error *ngIf="hasError('phone', 'required')">Phone is required</mat-error>
+                    <mat-error *ngIf="hasError('phone', 'maxlength')">You have more than 15 characters</mat-error>
+                  </mat-form-field>
+
+
+                  <mat-form-field fxFlex="48%" fxFlex.lt-sm="100%">
+                    <input matInput type="text" placeholder="Email" formControlName="email" id="email">
+                    <mat-hint align="end">Not more then 25 characters long.</mat-hint>
+                    <mat-error *ngIf="hasError('email', 'required')">Email is required</mat-error>
+                    <mat-error *ngIf="hasError('email', 'maxlength')">You have more than 25 characters</mat-error>
+                  </mat-form-field>
+                </div>
+            <div class="input-row"fxLayout="row wrap">
+                
+                <mat-form-field   style="margin-right:3%"  fxFlex="48%" fxFlex.lt-sm="100%">
+                    <mat-select formControlName="category" placeholder="Please select a category" (selectionChange)="onChange($event)">
+                        <mat-option *ngFor="let opt of selectOptions" [value]="opt.value">
+                          {{opt.name}}
+                        </mat-option>
+                      </mat-select>
+                </mat-form-field>
+
+                <mat-form-field fxFlex="48%" fxFlex.lt-sm="100%">
+                    <mat-select formControlName="gender" placeholder="Please select gender" (selectionChange)="onChange($event)">
+                        <mat-option *ngFor="let opt of genderOptions" [value]="opt.value">
+                          {{opt.name}}
+                        </mat-option>
+                      </mat-select>
+                  
+                </mat-form-field>
+            </div>
+
+            <div class="input-row"fxLayout="row wrap">
+                <mat-form-field style="margin-right:3%"  fxFlex="48%" fxFlex.lt-sm="100%">
+                  <input matInput type="text" placeholder="Chapter" formControlName="chapter" id="chapter">
+                  <mat-error *ngIf="hasError('chapter', 'required')">Address is required</mat-error>
+                </mat-form-field>
+                 
+                <mat-form-field fxFlex="48%" fxFlex.lt-sm="100%">
+                    <mat-select formControlName="zone" placeholder="Please select a zone" (selectionChange)="onChange($event)">
+                        <mat-option *ngFor="let opt of zonesOptions" [value]="opt.value">
+                          {{opt.name}}
+                        </mat-option>
+                      </mat-select>
+                      </mat-form-field>
+            </div>
+
+
+            
+
+    
+        </mat-card-content>
+	
+        <mat-card-actions align="center">
+                <button mat-raised-button color="primary" [disabled]="!memberForm.valid">Register</button>
+                <button type="button" mat-raised-button color="warn" (click)="onCancel()">Cancel</button><br/>
+                <mat-hint align="end">Registrered? <a routerLink="/member/check-payment">check payment</a></mat-hint>
+        </mat-card-actions>
+    </form>
+      </mat-card>
+  </section>
+
+ 
+ <section *ngIf='showFeedback' fxLayout="row wrap" fxLayoutAlign="center center">
+  <mat-card fxFlex="50%" fxFlex.xs="100%">
+      <mat-card-title></mat-card-title>
+      
+      <mat-card-content >
+      
+                <h3>{{feedback}} </h3>     
+    
+  
+      </mat-card-content>
+  
+      <mat-card-actions align="center">
+         
+              
+              <a [routerLink]="['/member/payment/',reference]">Proceed to Payment</a>
+      </mat-card-actions>
+
+    </mat-card>
+</section>

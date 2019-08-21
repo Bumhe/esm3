@@ -1,0 +1,18 @@
+<section *ngIf='showFeedback' fxLayout="row wrap" fxLayoutAlign="center center">
+        <mat-card fxFlex="50%" fxFlex.xs="100%">
+            <mat-card-title></mat-card-title>
+            
+            <mat-card-content >
+            
+                      <h3>{{message}} </h3>     
+          
+        
+            </mat-card-content>
+        
+            <mat-card-actions align="center">
+                    
+                    <a routerLink="/home">Close</a>
+            </mat-card-actions>
+      
+          </mat-card>
+      </section>
