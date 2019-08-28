@@ -141,7 +141,7 @@ this.repository.create(apiUrl, member)
     if(category=='esmaf'){
       return 3000;
     }
-    if(category=='student'){
+    if(category=='secondary'){
       return 500;
     }
   }

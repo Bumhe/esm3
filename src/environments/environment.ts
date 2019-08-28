@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  urlAddress: 'http://localhost:3000'
+  urlAddress: 'http://localhost:3000',
+  apiKey:'sk_test_2f91d6664a8dec995ac06be3a7f9fcd961013d81'
 };
 
 /*

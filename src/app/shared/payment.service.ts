@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from './../../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
@@ -11,8 +12,7 @@ export class PaymentService {
 
   public initilize(body:any){
     return   this.http.post("https://api.paystack.co/transaction/initialize",body,this.generateHeaders());
-    //sk_test_2f91d6664a8dec995ac06be3a7f9fcd961013d81
-    //sk_live_7a7f5e511cb2bdf9b0edcfc4f06bd6fd096b7844
+
   }
 
   public verify(reference:string){
@@ -24,7 +24,7 @@ export class PaymentService {
     return {
       headers: new HttpHeaders(
         
-        {"authorization": "Bearer sk_test_2f91d6664a8dec995ac06be3a7f9fcd961013d81",
+        {"authorization": "Bearer "+environment.apiKey,
         "content-type": "application/json",
         "cache-control": "no-cache"
       })

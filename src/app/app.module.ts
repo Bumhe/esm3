@@ -12,7 +12,7 @@ import {LayoutComponent} from'./layout/layout.component';
 import { RoutingModule } from './routing/routing.module';
 import { HeaderComponent } from './navigation/header/header.component';
 import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.component';
-import {OwnerModule} from'./owner/owner.module';
+//import {OwnerModule} from'./owner/owner.module';
 import {UserModule} from './user/user.module';
 import { NotFoundComponent } from './error-pages/not-found/not-found.component';
 import { ServerErrorComponent } from './error-pages/server-error/server-error.component';
@@ -33,7 +33,7 @@ import { ServerErrorComponent } from './error-pages/server-error/server-error.co
     SharedModule,
     RoutingModule,
     HttpClientModule,
-    OwnerModule,
+    
     UserModule
   ],
   providers: [],

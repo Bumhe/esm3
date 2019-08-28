@@ -74,7 +74,7 @@ export class UserPaymentComponent implements OnInit {
   public onPay = () => {
     //this.paymentEmitt.emit(event.value);
     this.paymentInitial.email=this.member.email;
-    this.paymentInitial.amount=this.getAmount(this.member.category);
+    this.paymentInitial.amount=this.getAmount(this.member.category)*100;
     this.paymentInitial.callback_url="https://c544d29c.ngrok.io/member/confirm";
     this.paymentInitial.reference=this.member.regId;
     this.payment.initilize(this.paymentInitial).subscribe(res=>{
