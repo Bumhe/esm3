@@ -34,7 +34,7 @@
 
                   <mat-form-field fxFlex="48%" fxFlex.lt-sm="100%">
                     <input matInput type="text" placeholder="Email" formControlName="email" id="email">
-                    <mat-hint align="end">Not more then 25 characters long.</mat-hint>
+                    <mat-hint align="end">Not more then 60 characters long.</mat-hint>
                     <mat-error *ngIf="hasError('email', 'required')">Email is required</mat-error>
                     <mat-error *ngIf="hasError('email', 'maxlength')">You have more than 25 characters</mat-error>
                   </mat-form-field>
@@ -83,7 +83,7 @@
         <mat-card-actions align="center">
                 <button mat-raised-button color="primary" [disabled]="!memberForm.valid">Register</button>
                 <button type="button" mat-raised-button color="warn" (click)="onCancel()">Cancel</button><br/>
-                <mat-hint align="end">Registrered? <a routerLink="/member/check-payment">check payment</a></mat-hint>
+                <mat-hint align="end">Registered? <a routerLink="/member/check-payment">check payment</a></mat-hint>
         </mat-card-actions>
     </form>
       </mat-card>

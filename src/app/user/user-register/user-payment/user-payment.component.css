@@ -8,3 +8,15 @@ section{
     margin-top: 20px;
 }
 
+a{
+    display: block;
+    border: 2px;
+    color:white;
+    align-content: center;
+}
+
+.msg{
+   
+    text-align: center;
+    align-items: center;
+}

@@ -7,16 +7,9 @@
   <a mat-list-item routerLink="/member/check-payment" (click)="onSidenavClose()">
       <mat-icon>assignment_ind</mat-icon> <span class="nav-caption">Check Payment</span>   
   </a>
-  <a mat-list-item routerLink="#" (click)="onSidenavClose()">
-      <mat-icon>account_balance</mat-icon><span class="nav-caption">Account Actions</span>
+  <a mat-list-item routerLink="/member/register" (click)="onSidenavClose()">
+      <mat-icon>account_balance</mat-icon><span class="nav-caption">Register</span>
   </a>
 </mat-nav-list>
 
-<mat-list-item [matMenuTriggerFor]="menu">
-    <mat-icon>unfold_more</mat-icon>
-    <a matline>Example</a>
-</mat-list-item>
-<mat-menu #menu="matMenu">
-  <button mat-menu-item (click)="onSidenavClose()">View profile</button>
-  <button mat-menu-item (click)="onSidenavClose()">Register</button>
-</mat-menu>
+

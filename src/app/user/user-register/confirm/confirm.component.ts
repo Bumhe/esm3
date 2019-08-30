@@ -11,6 +11,7 @@ export class ConfirmComponent implements OnInit {
 
   public message:string='';
   private refrence:string="";
+  public showFeedback:boolean=false;
   constructor(private route: ActivatedRoute,private payment: PaymentService,private repo: RepositoryService){}
     
   
@@ -41,10 +42,12 @@ export class ConfirmComponent implements OnInit {
           else{
             this.message="Payment was not successful. please try again later by clicking on the 'Check Payment' Link on the home page.";
           }
+          this.showFeedback=true;
         },
         err=>{
             this.message="A server error occured . please try again later by clicking on the 'Check Payment' Link on the home page.";
-        });
+            this.showFeedback=true;
+          });
         
   }
 

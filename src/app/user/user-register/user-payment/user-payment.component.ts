@@ -2,7 +2,7 @@ import { PaymentInitialize } from './../../../_interface/paymentUserInfo.model';
 import { Payment } from './../../../_interface/payment.model';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { PaymentService } from './../../../shared/payment.service';
-import { ActivatedRoute } from '@angular/router';
+import { Router,ActivatedRoute } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Location } from '@angular/common';
 import { MemberForCreation } from '../../../_interface/memberForCreation.model';
@@ -34,13 +34,14 @@ export class UserPaymentComponent implements OnInit {
   public paymentForm: FormGroup;
   private regId:string="";
   public memberExists:boolean=false;
+  public memberExistsMsg:boolean=false;
   private paymentInitial:PaymentInitialize={
     amount:0,
     email:"",
     reference:""
   };
   
-  constructor(private location: Location, private payment: PaymentService,private repository:RepositoryService,private route: ActivatedRoute) {
+  constructor(private location: Location, private payment: PaymentService,private repository:RepositoryService,private route: ActivatedRoute,private router:Router) {
     
    }
  
@@ -64,13 +65,21 @@ export class UserPaymentComponent implements OnInit {
             this.member.amount=memb["amount"];
             this.member.regId=memb["regId"];
             this.member.paid=Boolean(memb["paid"]);
+          },
+          err=>{
+            this.memberExists=false;
+            this.memberExistsMsg=true;
           }
+          
           );
          
     })
 
   }
+  public onInvalid = () => {
 
+    //this.router.navigateByUrl[("/member/check-payment")];
+  }
   public onPay = () => {
     //this.paymentEmitt.emit(event.value);
     this.paymentInitial.email=this.member.email;

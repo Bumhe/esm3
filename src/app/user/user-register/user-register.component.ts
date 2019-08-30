@@ -46,7 +46,7 @@ export class UserRegisterComponent implements OnInit {
     this.memberForm = new FormGroup({
       firstName: new FormControl('', [Validators.required, Validators.maxLength(20)]),
       lastName: new FormControl('', [Validators.required, Validators.maxLength(20)]),
-      email: new FormControl('', [Validators.required, Validators.maxLength(25),Validators.email]),
+      email: new FormControl('', [Validators.required, Validators.maxLength(60),Validators.email]),
       phone: new FormControl('', [Validators.required, Validators.maxLength(15)]),
       zone: new FormControl('', [Validators.required]),
       chapter: new FormControl('', [Validators.required]),
